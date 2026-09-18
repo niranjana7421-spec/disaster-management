@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResQ - Disaster Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">ResQ</div>
+
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#emergency">Emergency</a>
+                <a href="#map">Disaster Map</a>
+                <a href="#report">Report</a>
+                <a href="#safety">Safety</a>
+            </div>
+
+            <button class="emergency-btn" onclick="showEmergency()">
+                🚨 Emergency
+            </button>
+        </nav>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="tag">DISASTER MANAGEMENT & EMERGENCY RESPONSE</p>
+
+            <h1>Stay Alert.<br><span>Stay Safe.</span></h1>
+
+            <p>
+                One place for disaster alerts, emergency services,
+                safety information and incident reporting.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#emergency" class="primary-btn">Get Emergency Help</a>
+                <a href="#report" class="secondary-btn">Report an Incident</a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="alert-icon">⚠️</div>
+            <h3>Stay Prepared</h3>
+            <p>
+                Keep yourself informed and know what to do
+                before, during and after a disaster.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Alert -->
+    <section class="alert-section">
+        <div>
+            <strong>⚠️ Current Alert</strong>
+            <p>No major disaster alerts in your area.</p>
+        </div>
+
+        <span class="status">● Monitoring</span>
+    </section>
+
+
+    <!-- Emergency Services -->
+    <section id="emergency" class="section">
+        <div class="section-heading">
+            <p class="tag">QUICK ACCESS</p>
+            <h2>Emergency Services</h2>
+            <p>Get immediate access to important emergency resources.</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">🚑</div>
+                <h3>Ambulance</h3>
+                <p>Get medical emergency assistance.</p>
+                <button onclick="callService('108')">Call 108</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🚒</div>
+                <h3>Fire & Rescue</h3>
+                <p>Contact fire and rescue services.</p>
+                <button onclick="callService('101')">Call 101</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">👮</div>
+                <h3>Police</h3>
+                <p>Contact police during an emergency.</p>
+                <button onclick="callService('112')">Call 112</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🏥</div>
+                <h3>Hospitals</h3>
+                <p>Find nearby hospitals and medical centres.</p>
+                <button onclick="findHospitals()">Find Nearby</button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Disaster Map -->
+    <section id="map" class="section map-section">
+        <div class="section-heading">
+            <p class="tag">LIVE INFORMATION</p>
+            <h2>Disaster Map</h2>
+            <p>View reported incidents and important emergency locations.</p>
+        </div>
+
+        <div class="map-box">
+            <div class="map-content">
+                <div class="map-pin pin-one">📍</div>
+                <div class="map-pin pin-two">📍</div>
+                <div class="map-pin pin-three">📍</div>
+
+                <div class="map-center">
+                    <span>🗺️</span>
+                    <h3>Interactive Disaster Map</h3>
+                    <p>Map integration can be added here.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Report Incident -->
+    <section id="report" class="section report-section">
+
+        <div class="section-heading">
+            <p class="tag">HELP YOUR COMMUNITY</p>
+            <h2>Report an Incident</h2>
+            <p>
+                Report floods, fires, landslides, blocked roads
+                or damaged buildings.
+            </p>
+        </div>
+
+        <form id="reportForm">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Incident Type</label>
+
+                    <select id="incidentType" required>
+                        <option value="">Select incident</option>
+                        <option>Flood</option>
+                        <option>Fire</option>
+                        <option>Landslide</option>
+                        <option>Blocked Road</option>
+                        <option>Damaged Building</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Location</label>
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Enter location"
+                        required
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+
+                <textarea
+                    id="description"
+                    placeholder="Describe what happened..."
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="primary-btn">
+                Submit Report
+            </button>
+
+        </form>
+    </section>
+
+
+    <!-- Safety -->
+    <section id="safety" class="section safety-section">
+
+        <div class="section-heading">
+            <p class="tag">BE PREPARED</p>
+            <h2>Safety Instructions</h2>
+            <p>Know what to do when disaster strikes.</p>
+        </div>
+
+        <div class="safety-grid">
+
+            <div class="safety-card">
+                <span>🌊</span>
+                <h3>Flood</h3>
+                <p>
+                    Move to higher ground and avoid walking or
+                    driving through flood water.
+                </p>
+            </div>
+
+            <div class="safety-card">
+                <span>🔥</span>
+                <h3>Fire</h3>
+                <p>
+                    Stay low, avoid smoke and leave the building
+                    using the nearest safe exit.
+                </p>
+            </div>
+
+            <div class="safety-card">
+                <span>🌍</span>
+                <h3>Earthquake</h3>
+                <p>
+                    Drop, cover and hold on. Stay away from
+                    windows and unstable structures.
+                </p>
+            </div>
+
+            <div class="safety-card">
+                <span>⛰️</span>
+                <h3>Landslide</h3>
+                <p>
+                    Move away from unstable slopes and follow
+                    official evacuation instructions.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- AI Assistant -->
+    <section class="assistant-section">
+
+        <div class="assistant-content">
+            <p class="tag">SMART ASSISTANCE</p>
+            <h2>AI Disaster Assistant</h2>
+
+            <p>
+                Get quick answers about emergency procedures,
+                disaster preparedness and safety measures.
+            </p>
+
+            <button class="primary-btn" onclick="openAssistant()">
+                Ask Disaster Assistant
+            </button>
+        </div>
+
+        <div class="assistant-icon">
+            🤖
+        </div>
+
+    </section>
+
+
+    <!-- Preparedness -->
+    <section class="section">
+
+        <div class="section-heading">
+            <p class="tag">PREPARE TODAY</p>
+            <h2>Emergency Checklist</h2>
+            <p>Keep these essentials ready before an emergency.</p>
+        </div>
+
+        <div class="checklist">
+
+            <label>
+                <input type="checkbox">
+                First-aid kit
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Drinking water
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Emergency food
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Torch and batteries
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Important documents
+            </label>
+
+            <label>
+                <input type="checkbox">
+                Emergency contact numbers
+            </label>
+
+        </div>
+
+    </section>
+
+
+    <!-- Volunteer -->
+    <section class="volunteer">
+
+        <div>
+            <p class="tag">COMMUNITY RESPONSE</p>
+            <h2>Want to Help?</h2>
+
+            <p>
+                Volunteers can support communities during
+                disaster response and recovery.
+            </p>
+        </div>
+
+        <button class="secondary-btn" onclick="joinVolunteer()">
+            Join as Volunteer
+        </button>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-logo">ResQ</div>
+
+        <p>
+            Disaster Management & Emergency Response Platform
+        </p>
+
+        <p class="copyright">
+            © 2026 ResQ. Built for safer communities.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
